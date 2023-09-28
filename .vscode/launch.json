@@ -10,7 +10,7 @@
             "request": "launch",
             "env": {
                 "Flask_APP":"start:app",
-                "Flask_ENV":"Development"
+                "Flask_ENV":"development"
             },
             "program": "${file}",
             "console": "integratedTerminal",
