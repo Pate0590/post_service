@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "env": {
-                "Flask_APP":"start:app",
+                "Flask_APP":"startup:app",
                 "Flask_ENV":"development"
             },
             "program": "${file}",
