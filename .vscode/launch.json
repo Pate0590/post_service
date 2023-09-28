@@ -8,6 +8,10 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
+            "env": {
+                "Flask_APP":"start:app",
+                "Flask_ENV":"Development"
+            },
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true
