@@ -9,12 +9,27 @@
             "type": "python",
             "request": "launch",
             "env": {
-                "Flask_APP":"startup:app",
-                "Flask_ENV":"development"
+                "Flask_APP": "startup:app",
+                "Flask_ENV": "development"
             },
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "Docker: Python - Flask",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "flask"
+            }
         }
     ]
 }
