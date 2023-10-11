@@ -18,7 +18,6 @@ def post(id):
     
     post_info = posts.get(id, {})
     
-    # Get user info from User Service
     if post_info:
         response = requests.get(f'http://localhost:5001/user/{post_info["user_id"]}')
         if response.status_code == 200:
@@ -29,10 +28,8 @@ def post(id):
 def create_post():
     new_post = request.get_json()
     
-    # Define a list of required keys
     required_keys = ['user_id',  'post']
 
-    # Check if all required keys exist in the request data
     if all(key in new_post for key in required_keys):
         posts[str(len(posts.keys()) + 1)] = new_post
         print(posts)
@@ -42,11 +39,10 @@ def create_post():
     
 @app.route('/post/<id>', methods=['PUT'])
 def update_post(id):
-    # Check if the post ID exists
+    
     if id in posts:
         updated_post = request.get_json()
 
-        # Check if the required keys are present in the request data
         required_keys = ['user_id',  'post']
         if all(key in updated_post for key in required_keys):
             posts[id] = updated_post
@@ -60,7 +56,7 @@ def update_post(id):
 @app.route('/post/<id>', methods=['DELETE'])
 def delete_post(id):
     if id in posts:
-        # If the post with the given ID exists, delete it
+        
         del posts[id]
         return jsonify({"success": True, "msg": "post deleted successfully"})
     else:
