@@ -19,7 +19,7 @@ def post(id):
     post_info = posts.get(id, {})
     
     if post_info:
-        response = requests.get(f'http://localhost:5001/user/{post_info["user_id"]}')
+        response = requests.get(f'https://ankituserservice.azurewebsites.net/user/{post_info["user_id"]}')
         if response.status_code == 200:
             post_info['user'] = response.json()
 
@@ -65,4 +65,4 @@ def delete_post(id):
 
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    app.run('0.0.0.0',port=5001)
